@@ -1,0 +1,59 @@
+.header {
+  width: 100%;
+  height: 90px;
+  background-color: #ffffff;
+  border-bottom: 1px solid #eeeeee;
+  display: flex;
+  align-items: center;
+  padding: 0 5%;
+}
+
+.container {
+  width: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+}
+
+.menuButton {
+  justify-self: start;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 26px;
+  color: #111111;
+}
+
+.logo {
+  justify-self: center;
+  width: 220px;
+  height: auto;
+  object-fit: contain;
+}
+
+.cartButton {
+  justify-self: end;
+  position: relative;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 22px;
+  color: #111111;
+}
+
+.cartCount {
+  position: absolute;
+  top: -8px;
+  right: -10px;
+  background-color: #111111;
+  color: #ffffff;
+  font-size: 10px;
+  width: 17px;
+  height: 17px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

@@ -1,0 +1,184 @@
+.hero {
+  position: relative;
+  width: 100%;
+  height: min(650px, 65vw);
+  min-height: 350px;
+  overflow: hidden;
+  background: #171717;
+}
+
+.slide {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.8s ease, visibility 0.8s ease;
+}
+
+.slide img {
+  object-fit: cover;
+  object-position: center;
+}
+
+.active {
+  opacity: 1;
+  visibility: visible;
+  z-index: 1;
+}
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    90deg,
+    rgba(0, 0, 0, 0.72) 0%,
+    rgba(0, 0, 0, 0.45) 35%,
+    transparent 75%
+  );
+}
+
+.content {
+  position: absolute;
+  top: 50%;
+  left: 10%;
+  transform: translateY(-50%);
+  z-index: 2;
+  max-width: 500px;
+  color: #ffffff;
+}
+
+.eyebrow {
+  display: block;
+  font-size: 11px;
+  letter-spacing: 4px;
+  margin-bottom: 22px;
+  font-weight: 400;
+}
+
+.content h1,
+.content h2 {
+  font-size: clamp(30px, 4vw, 52px);
+  line-height: 1.15;
+  font-weight: 400;
+  letter-spacing: 2px;
+  margin: 0 0 18px;
+}
+
+.content p {
+  font-size: 13px;
+  letter-spacing: 2.5px;
+  line-height: 1.7;
+  margin-bottom: 28px;
+}
+
+.cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+  padding: 15px 25px;
+  background: #ffffff;
+  color: #111111;
+  text-decoration: none;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 1.2px;
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+.cta:hover {
+  background: #171717;
+  color: #ffffff;
+}
+
+.arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 3;
+  border: none;
+  background: transparent;
+  color: #ffffff;
+  cursor: pointer;
+  padding: 12px;
+  transition: opacity 0.2s ease;
+}
+
+.arrow:hover {
+  opacity: 0.6;
+}
+
+.previous {
+  left: 15px;
+}
+
+.next {
+  right: 15px;
+}
+
+.indicators {
+  position: absolute;
+  bottom: 24px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  z-index: 3;
+}
+
+.indicator {
+  width: 22px;
+  height: 3px;
+  padding: 0;
+  border: none;
+  background: rgba(255, 255, 255, 0.5);
+  cursor: pointer;
+  transition: width 0.3s ease, background 0.3s ease;
+}
+
+.indicatorActive {
+  width: 40px;
+  background: #ffffff;
+}
+
+@media (max-width: 768px) {
+  .hero {
+    height: 65vh;
+    min-height: 400px;
+    max-height: 550px;
+  }
+
+  .content {
+    left: 8%;
+    right: 8%;
+    max-width: 380px;
+  }
+
+  .eyebrow {
+    font-size: 9px;
+    letter-spacing: 2px;
+  }
+
+  .content h1,
+  .content h2 {
+    font-size: clamp(27px, 7vw, 38px);
+  }
+
+  .content p {
+    font-size: 11px;
+    letter-spacing: 1.5px;
+  }
+
+  .cta {
+    padding: 13px 17px;
+    font-size: 10px;
+  }
+
+  .previous {
+    left: 2px;
+  }
+
+  .next {
+    right: 2px;
+  }
+}
