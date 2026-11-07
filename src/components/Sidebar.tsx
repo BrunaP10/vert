@@ -5,17 +5,17 @@ import Link from "next/link";
 import { X } from "lucide-react";
 import styles from "./Sidebar.module.css";
 
+const categories = [
+  { label: "Início", href: "#inicio" },
+  { label: "Óculos de sol", href: "#sunglasses" },
+  { label: "Óculos de grau", href: "#prescription" },
+  { label: "Óculos esportivos", href: "#sports" },
+];
+
 interface SidebarProps {
   isOpen: boolean;
   onClose: () => void;
 }
-
-const categories = [
-  { label: "Início", href: "/" },
-  { label: "Óculos de sol", href: "/sunglasses" },
-  { label: "Óculos de grau", href: "/prescription" },
-  { label: "Óculos esportivos", href: "/sports" },
-];
 
 export default function Sidebar({
   isOpen,
@@ -31,7 +31,6 @@ export default function Sidebar({
     };
 
     document.body.style.overflow = "hidden";
-
     window.addEventListener("keydown", handleKeyDown);
 
     return () => {
@@ -43,13 +42,17 @@ export default function Sidebar({
   return (
     <>
       <div
-        className={`${styles.overlay} ${isOpen ? styles.overlayVisible : ""}`}
+        className={`${styles.overlay} ${
+          isOpen ? styles.overlayVisible : ""
+        }`}
         onClick={onClose}
         aria-hidden="true"
       />
 
       <aside
-        className={`${styles.sidebar} ${isOpen ? styles.sidebarOpen : ""}`}
+        className={`${styles.sidebar} ${
+          isOpen ? styles.sidebarOpen : ""
+        }`}
         aria-hidden={!isOpen}
         aria-label="Menu de navegação"
       >
@@ -71,6 +74,7 @@ export default function Sidebar({
               key={category.href}
               href={category.href}
               onClick={onClose}
+              tabIndex={isOpen ? 0 : -1}
             >
               {category.label}
             </Link>
@@ -80,4 +84,3 @@ export default function Sidebar({
     </>
   );
 }
-

@@ -5,10 +5,12 @@ import Image from "next/image";
 import { useCart } from "@/hooks/useCart";
 import { Menu, ShoppingBag } from "lucide-react";
 import Sidebar from "./Sidebar";
+import CartSidebar from "./CartSidebar";
 import styles from "./Header.module.css";
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isCartOpen, setIsCartOpen] = useState(false);
 
   const { items } = useCart();
 
@@ -42,7 +44,8 @@ export default function Header() {
           <button
             className={styles.cartButton}
             type="button"
-            aria-label={`Sacola com ${totalItems} produtos`}
+            aria-label={`Abrir sacola com ${totalItems} produtos`}
+            onClick={() => setIsCartOpen(true)}
           >
             <ShoppingBag size={23} strokeWidth={1.5} />
 
@@ -57,7 +60,11 @@ export default function Header() {
         isOpen={isMenuOpen}
         onClose={() => setIsMenuOpen(false)}
       />
+
+      <CartSidebar
+        isOpen={isCartOpen}
+        onClose={() => setIsCartOpen(false)}
+      />
     </>
   );
 }
-

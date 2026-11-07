@@ -13,7 +13,7 @@ const banners = [
     title: "ESTILO QUE ACOMPANHA VOCÊ",
     description: "ÓCULOS PARA TODOS OS SEUS MOMENTOS.",
     button: "CONHEÇA A COLEÇÃO",
-    href: "/sunglasses",
+    href: "#sunglasses",
   },
   {
     src: "/images/banners/main/banner-prescription.jpeg",
@@ -21,7 +21,7 @@ const banners = [
     title: "ENXERGUE NOVAS POSSIBILIDADES",
     description: "CONFORTO, ESTILO E PERSONALIDADE.",
     button: "DESCUBRA OS MODELOS",
-    href: "/prescription",
+    href: "#prescription",
   },
   {
     src: "/images/banners/main/banner-sports.jpeg",
@@ -29,7 +29,7 @@ const banners = [
     title: "SUPERE SEUS LIMITES",
     description: "TECNOLOGIA E PERFORMANCE PARA SEU RITMO.",
     button: "EXPLORE A COLEÇÃO",
-    href: "/sports",
+    href: "#sports",
   },
 ];
 
@@ -139,4 +139,3 @@ export default function HeroBanner() {
     </section>
   );
 }
-

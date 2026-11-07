@@ -9,10 +9,11 @@ import {
   type ReactNode,
 } from "react";
 
-import type { Product } from "@/types/product";
+import type { Product, ProductVariant } from "@/types/product";
 
 export interface CartItem {
   product: Product;
+  selectedVariant: ProductVariant;
   quantity: number;
 }
 
@@ -25,11 +26,24 @@ const initialState: CartState = {
 };
 
 type CartAction =
-  | { type: "ADD_ITEM"; payload: Product }
-  | { type: "REMOVE_ITEM"; payload: number }
-  | { type: "INCREASE_QUANTITY"; payload: number }
-  | { type: "DECREASE_QUANTITY"; payload: number }
+  | {
+      type: "ADD_ITEM";
+      payload: {
+        product: Product;
+        selectedVariant: ProductVariant;
+      };
+    }
+  | { type: "REMOVE_ITEM"; payload: string }
+  | { type: "INCREASE_QUANTITY"; payload: string }
+  | { type: "DECREASE_QUANTITY"; payload: string }
   | { type: "LOAD_CART"; payload: CartItem[] };
+
+function getCartItemId(
+  product: Product,
+  selectedVariant: ProductVariant
+) {
+  return `${product.id}-${selectedVariant.color}`;
+}
 
 function cartReducer(
   state: CartState,
@@ -43,15 +57,20 @@ function cartReducer(
       };
 
     case "ADD_ITEM": {
+      const { product, selectedVariant } = action.payload;
+
+      const itemId = getCartItemId(product, selectedVariant);
+
       const existingItem = state.items.find(
-        (item) => item.product.id === action.payload.id
+        (item) =>
+          getCartItemId(item.product, item.selectedVariant) === itemId
       );
 
       if (existingItem) {
         return {
           ...state,
           items: state.items.map((item) =>
-            item.product.id === action.payload.id
+            getCartItemId(item.product, item.selectedVariant) === itemId
               ? { ...item, quantity: item.quantity + 1 }
               : item
           ),
@@ -62,7 +81,11 @@ function cartReducer(
         ...state,
         items: [
           ...state.items,
-          { product: action.payload, quantity: 1 },
+          {
+            product,
+            selectedVariant,
+            quantity: 1,
+          },
         ],
       };
     }
@@ -71,7 +94,9 @@ function cartReducer(
       return {
         ...state,
         items: state.items.filter(
-          (item) => item.product.id !== action.payload
+          (item) =>
+            getCartItemId(item.product, item.selectedVariant) !==
+            action.payload
         ),
       };
 
@@ -79,7 +104,8 @@ function cartReducer(
       return {
         ...state,
         items: state.items.map((item) =>
-          item.product.id === action.payload
+          getCartItemId(item.product, item.selectedVariant) ===
+          action.payload
             ? { ...item, quantity: item.quantity + 1 }
             : item
         ),
@@ -90,7 +116,8 @@ function cartReducer(
         ...state,
         items: state.items
           .map((item) =>
-            item.product.id === action.payload
+            getCartItemId(item.product, item.selectedVariant) ===
+            action.payload
               ? { ...item, quantity: item.quantity - 1 }
               : item
           )
@@ -131,9 +158,22 @@ export function CartProvider({
           "items" in parsedCart &&
           Array.isArray(parsedCart.items)
         ) {
+          const restoredItems = parsedCart.items
+            .map((item: CartItem & { selectedVariant?: ProductVariant }) => ({
+              ...item,
+              selectedVariant:
+                item.selectedVariant ?? item.product?.variants?.[0],
+            }))
+            .filter(
+              (item: CartItem) =>
+                item.product &&
+                item.selectedVariant &&
+                item.quantity > 0
+            );
+
           dispatch({
             type: "LOAD_CART",
-            payload: parsedCart.items as CartItem[],
+            payload: restoredItems,
           });
         }
       }
@@ -144,6 +184,7 @@ export function CartProvider({
     }
   }, []);
 
+  // Salva o carrinho no navegador
   useEffect(() => {
     if (!isLoaded) return;
 

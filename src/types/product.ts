@@ -1,13 +1,19 @@
-export type ProductCategory = 
+export type ProductCategory =
   | "sunglasses"
   | "prescription"
   | "sports";
 
-export interface Product {
-  id: number;
-  name: string;
-  price: number;
+export interface ProductVariant {
+  color: string;
   image: string;
+}
+
+export interface Product {
+  id: string;
+  name: string;
+  model: string;
+  price: number;
   category: ProductCategory;
   description: string;
+  variants: ProductVariant[];
 }

@@ -1,0 +1,95 @@
+.card {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.imageContainer {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+  background-color: #f5f4f1;
+}
+
+.image {
+  object-fit: contain;
+  padding: 3px;
+  transition: transform 0.4s ease;
+}
+
+.card:hover .image {
+  transform: scale(1.04);
+}
+
+.info {
+  padding: 14px 4px;
+}
+
+.info h3 {
+  font-size: 14px;
+  font-weight: 500;
+  margin-bottom: 6px;
+}
+
+.info p {
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.variants {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  margin-top: 12px;
+  margin-bottom: 12px;
+}
+
+.colorOption {
+  width: 15px;
+  height: 15px;
+  border: 1px solid #d5d5d5;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: transform 0.2s ease, outline 0.2s ease;
+}
+
+.colorOption:hover {
+  transform: scale(1.15);
+}
+
+.colorOption.selected {
+  outline: 1px solid #222;
+  outline-offset: 3px;
+}
+
+.addButton {
+  margin-top: 4px;
+  padding: 10px;
+  width: 100%;
+  border: 1px solid #222;
+  background: #222;
+  color: #fff;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.addButton:hover {
+  background: #444;
+}
+
+@media (max-width: 768px) {
+  .info {
+    padding: 10px 2px;
+  }
+
+  .info h3,
+  .info p {
+    font-size: 13px;
+  }
+
+  .colorOption {
+    width: 13px;
+    height: 13px;
+  }
+}
