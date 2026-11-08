@@ -1,0 +1,48 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 16px;
+  padding: 24px 0;
+}
+
+.container svg {
+  color: #4f6f69;
+}
+
+.container h2 {
+  font-size: 24px;
+  font-weight: 600;
+  color: #171717;
+}
+
+.container p {
+  font-size: 14px;
+  line-height: 1.6;
+  color: #555;
+}
+
+.container p strong {
+  color: #171717;
+  font-weight: 600;
+}
+
+.container span {
+  font-size: 12px;
+  color: #777;
+}
+
+.container button {
+  margin-top: 12px;
+  padding: 14px 24px;
+  border: none;
+  background: #171717;
+  color: #fff;
+  font-size: 13px;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.container button:hover {
+  background: #4f6f69;
+}

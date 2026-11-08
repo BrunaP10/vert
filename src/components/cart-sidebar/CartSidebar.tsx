@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect } from "react";
+import { useRouter } from "next/navigation";
 import Image from "next/image";
 import { X, Minus, Plus, Trash2 } from "lucide-react";
 import { useCart } from "@/hooks/useCart";
@@ -16,6 +17,7 @@ export default function CartSidebar({
   onClose,
 }: CartSidebarProps) {
   const { items, dispatch } = useCart();
+  const router = useRouter();
 
   useEffect(() => {
     if (!isOpen) return;
@@ -46,6 +48,11 @@ export default function CartSidebar({
     color: string
   ) {
     return `${productId}-${color}`;
+  }
+
+  function handleCheckout() {
+    onClose();
+    router.push("/checkout");
   }
 
   if (!isOpen) return null;
@@ -192,7 +199,7 @@ export default function CartSidebar({
             <button
               type="button"
               className={styles.checkoutButton}
-              disabled
+              onClick={handleCheckout}
             >
               Finalizar compra
             </button>

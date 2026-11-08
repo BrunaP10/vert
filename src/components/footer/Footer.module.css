@@ -1,0 +1,262 @@
+.footer {
+  width: 100%;
+  background: #171717;
+  color: #fff;
+}
+
+/* Banner de busca */
+
+.searchBanner {
+  position: relative;
+  width: 100%;
+  min-height: 270px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+}
+
+.searchBanner::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: linear-gradient(
+    90deg,
+    rgba(0, 0, 0, 0.85) 0%,
+    rgba(0, 0, 0, 0.55) 55%,
+    rgba(0, 0, 0, 0.15) 100%
+  );
+}
+
+.searchBanner img {
+  object-fit: cover;
+  object-position: center;
+}
+
+.searchContent {
+  position: relative;
+  z-index: 2;
+  width: min(100% - 16%, 1200px);
+  margin: 0 auto;
+}
+
+.searchContent > span {
+  font-size: 11px;
+  letter-spacing: 2px;
+  color: #ddd;
+}
+
+.searchContent h2 {
+  margin: 12px 0 22px;
+  font-size: 25px;
+  font-weight: 400;
+  letter-spacing: 1px;
+}
+
+/* Campo de busca */
+
+.searchBox {
+  display: flex;
+  width: min(100%, 460px);
+  height: 44px;
+  background: #fff;
+}
+
+.searchBox input {
+  flex: 1;
+  min-width: 0;
+  padding: 0 14px;
+  border: none;
+  outline: none;
+  color: #171717;
+  font-size: 12px;
+}
+
+.searchBox button {
+  width: 58px;
+  border: none;
+  background: #171717;
+  color: #fff;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+/* Conteúdo institucional */
+
+.footerContent {
+  width: min(100% - 16%, 1200px);
+  margin: 0 auto;
+  padding: 55px 0 45px;
+  display: grid;
+  grid-template-columns: 1.4fr 0.8fr 1fr 1.2fr;
+  gap: 35px;
+}
+
+/* Identidade da marca */
+
+.brand h2 {
+  font-size: 32px;
+  font-weight: 400;
+  letter-spacing: 6px;
+}
+
+.brand p {
+  margin-top: 12px;
+  font-size: 9px;
+  letter-spacing: 1.5px;
+  color: #aaa;
+  white-space: nowrap;
+}
+
+/* Colunas */
+
+.footerColumn,
+.newsletter {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.footerColumn h3,
+.newsletter h3 {
+  margin-bottom: 5px;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+
+.footerColumn a {
+  width: fit-content;
+  color: #aaa;
+  font-size: 12px;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.footerColumn a:hover {
+  color: #fff;
+}
+
+.newsletter p {
+  color: #aaa;
+  font-size: 12px;
+  line-height: 1.6;
+}
+
+/* Newsletter */
+
+.newsletterForm {
+  display: flex;
+  width: 100%;
+  height: 40px;
+  margin-top: 5px;
+  background: #fff;
+}
+
+.newsletterForm input {
+  flex: 1;
+  min-width: 0;
+  padding: 0 12px;
+  border: none;
+  outline: none;
+  color: #171717;
+  font-size: 11px;
+}
+
+.newsletterForm button {
+  width: 45px;
+  border: none;
+  background: #333;
+  color: #fff;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+/* Assinatura inferior */
+
+.footerBottom {
+  width: min(100% - 16%, 1200px);
+  margin: 0 auto;
+  padding: 22px 0;
+  border-top: 1px solid #383838;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.footerBottom > span {
+  color: #aaa;
+  font-size: 11px;
+}
+
+.socialLinks {
+  display: flex;
+  align-items: center;
+  gap: 22px;
+}
+
+.socialLinks a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  transition: opacity 0.2s ease;
+}
+
+.socialLinks a svg {
+  width: 19px;
+  height: 19px;
+}
+
+.socialLinks a:hover {
+  opacity: 0.6;
+}
+
+/* Responsividade */
+
+@media (max-width: 900px) {
+  .footerContent {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 40px 30px;
+  }
+}
+
+@media (max-width: 600px) {
+  .searchBanner {
+    min-height: 230px;
+  }
+
+  .searchContent {
+    width: 88%;
+  }
+
+  .searchContent h2 {
+    max-width: 320px;
+    font-size: 19px;
+    line-height: 1.4;
+  }
+
+  .footerContent {
+    width: 88%;
+    grid-template-columns: 1fr 1fr;
+    gap: 35px 20px;
+    padding: 40px 0;
+  }
+
+  .brand p {
+    white-space: normal;
+    line-height: 1.6;
+  }
+
+  .footerBottom {
+    width: 88%;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .socialLinks {
+    flex-wrap: wrap;
+    gap: 15px;
+  }
+}

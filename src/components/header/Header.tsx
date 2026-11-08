@@ -4,8 +4,8 @@ import { useState } from "react";
 import Image from "next/image";
 import { useCart } from "@/hooks/useCart";
 import { Menu, ShoppingBag } from "lucide-react";
-import Sidebar from "./Sidebar";
-import CartSidebar from "./CartSidebar";
+import Sidebar from "../sidebar/Sidebar";
+import CartSidebar from "../cart-sidebar/CartSidebar";
 import styles from "./Header.module.css";
 
 export default function Header() {

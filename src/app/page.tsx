@@ -1,8 +1,9 @@
-import Header from "@/components/Header";
-import HeroBanner from "@/components/HeroBanner";
-import InstitutionalSection from "@/components/InstitutionalSection";
-import ProductSection from "@/components/ProductSection";
-import BenefitsBar from "@/components/BenefitsBar";
+import Header from "@/components/header/Header";
+import HeroBanner from "@/components/hero-banner/HeroBanner";
+import InstitutionalSection from "@/components/institutional-section/InstitutionalSection";
+import ProductSection from "@/components/products/product-section/ProductSection";
+import BenefitsBar from "@/components/benefits-bar/BenefitsBar";
+import Footer from "@/components/footer/Footer";
 import { products } from "@/data/products";
 
 export default function Home() {
@@ -51,6 +52,8 @@ export default function Home() {
           products={sports}
         />
       </main>
+      
+      <Footer />
     </>
   );
 }

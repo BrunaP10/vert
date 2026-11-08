@@ -1,0 +1,121 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 36px;
+}
+
+.section {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.section h2 {
+  font-family: var(--font-manrope);
+  font-size: 20px;
+  font-weight: 600;
+  color: #171717;
+  padding-bottom: 14px;
+  border-bottom: 1px solid #dedede;
+}
+
+.section p {
+  font-family: var(--font-dm-sans);
+  font-size: 14px;
+  color: #777777;
+}
+
+.option {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 20px;
+  border: 1px solid #dedede;
+  border-radius: 3px;
+  cursor: pointer;
+  transition: border-color 0.2s ease, background 0.2s ease;
+}
+
+.option:hover {
+  border-color: #777777;
+}
+
+.option.selected {
+  border-color: #171717;
+  background: #f7f7f7;
+}
+
+.option input {
+  accent-color: #171717;
+  width: 16px;
+  height: 16px;
+}
+
+.optionInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.optionInfo strong {
+  font-family: var(--font-manrope);
+  font-size: 14px;
+  font-weight: 600;
+  color: #171717;
+}
+
+.optionInfo span {
+  font-family: var(--font-dm-sans);
+  font-size: 12px;
+  color: #777777;
+}
+
+.actions {
+  display: flex;
+  gap: 14px;
+}
+
+.backButton,
+.confirmButton {
+  min-height: 50px;
+  padding: 0 22px;
+  border-radius: 3px;
+  font-family: var(--font-manrope);
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.backButton {
+  flex: 1;
+  border: 1px solid #dedede;
+  background: #ffffff;
+  color: #171717;
+}
+
+.backButton:hover {
+  background: #f5f5f5;
+}
+
+.confirmButton {
+  flex: 2;
+  border: 1px solid #171717;
+  background: #171717;
+  color: #ffffff;
+}
+
+.confirmButton:hover {
+  background: #3a3a3a;
+}
+
+@media (max-width: 480px) {
+  .actions {
+    flex-direction: column-reverse;
+  }
+
+  .backButton,
+  .confirmButton {
+    width: 100%;
+  }
+}

@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import type { Product } from "@/types/product";
-import ProductCard from "./ProductCard";
+import ProductCard from "@/components/products/product-card/ProductCard";
 import styles from "./ProductCarousel.module.css";
 
 interface ProductCarouselProps {

@@ -36,7 +36,8 @@ type CartAction =
   | { type: "REMOVE_ITEM"; payload: string }
   | { type: "INCREASE_QUANTITY"; payload: string }
   | { type: "DECREASE_QUANTITY"; payload: string }
-  | { type: "LOAD_CART"; payload: CartItem[] };
+  | { type: "LOAD_CART"; payload: CartItem[] }
+  | { type: "CLEAR_CART" };
 
 function getCartItemId(
   product: Product,
@@ -122,6 +123,12 @@ function cartReducer(
               : item
           )
           .filter((item) => item.quantity > 0),
+      };
+
+    case "CLEAR_CART":
+      return {
+        ...state,
+        items: [],
       };
 
     default:

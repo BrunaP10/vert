@@ -1,7 +1,7 @@
 import Image from "next/image";
 import type { Product, ProductCategory } from "@/types/product";
-import ProductCarousel from "./ProductCarousel";
-import ProductCatalogModal from "./ProductCatalogModal";
+import ProductCarousel from "@/components/products/product-carousel/ProductCarousel";
+import ProductCatalogModal from "@/components/products/product-catalog-modal/ProductCatalogModal";
 import styles from "./ProductSection.module.css";
 
 interface ProductSectionProps {
