@@ -1,10 +1,11 @@
 "use client";
 
-import { useSearchParams, useRouter } from "next/navigation";
+import { useSearchParams } from "next/navigation";
 import { Suspense, useMemo, useState } from "react";
 
 import { products } from "@/data/products";
 import ProductCard from "@/components/products/product-card/ProductCard";
+import StoreButton from "@/components/store-button/StoreButton";
 
 import styles from "./busca.module.css";
 
@@ -12,8 +13,7 @@ type SortOption = "relevant" | "price-asc" | "price-desc" | "name-asc" | "name-d
 
 function SearchResults() {
   const searchParams = useSearchParams();
-  const router = useRouter();
-
+ 
   const searchTerm = searchParams.get("q") ?? "";
 
   const [sortOption, setSortOption] = useState<SortOption>("relevant");
@@ -109,12 +109,7 @@ function SearchResults() {
                 </select>
               </div>
 
-              <button
-                type="button"
-                onClick={() => router.push("/")}
-              >
-                Voltar para a loja
-              </button>
+              <StoreButton />
             </div>
           </div>
 
@@ -136,12 +131,7 @@ function SearchResults() {
             Tente buscar pelo nome ou modelo do produto.
           </p>
 
-          <button
-            type="button"
-            onClick={() => router.push("/")}
-          >
-            Voltar para a loja
-          </button>
+          <StoreButton />
         </div>
       )}
     </main>

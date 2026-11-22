@@ -16,6 +16,7 @@ import PaymentOptions, {
 
 import OrderConfirmation from "@/components/checkout/order-confirmation/OrderConfirmation";
 
+import StoreButton from "@/components/store-button/StoreButton";
 import styles from "./checkout.module.css";
 
 export default function CheckoutPage() {
@@ -70,12 +71,7 @@ export default function CheckoutPage() {
   return (
     <main className={styles.checkout}>
       <header className={styles.header}>
-        <button
-          type="button"
-          onClick={() => router.push("/")}
-        >
-          Voltar para a loja
-        </button>
+        <StoreButton clearCart={currentStep === "confirmation"} />
 
         <h1>Finalizar compra</h1>
 

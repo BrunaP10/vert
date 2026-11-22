@@ -6,10 +6,10 @@ import { X } from "lucide-react";
 import styles from "./Sidebar.module.css";
 
 const categories = [
-  { label: "Início", href: "#inicio" },
-  { label: "Óculos de sol", href: "#sunglasses" },
-  { label: "Óculos de grau", href: "#prescription" },
-  { label: "Óculos esportivos", href: "#sports" },
+  { label: "Início", href: "/" },
+  { label: "Óculos de sol", href: "/category/sunglasses" },
+  { label: "Óculos de grau", href: "/category/prescription" },
+  { label: "Óculos esportivos", href: "/category/sports" },
 ];
 
 interface SidebarProps {

@@ -38,7 +38,7 @@
   border-bottom: 1px solid #e8e8e8;
 }
 
-.resultsInfo span {
+.resultsInfo > span {
   font-size: 12px;
   color: #777;
 }
@@ -78,21 +78,12 @@
   outline-offset: 2px;
 }
 
-.resultsInfo button,
-.empty button {
-  border: 1px solid #171717;
-  background: transparent;
-  color: #171717;
-  padding: 11px 20px;
-  font-size: 11px;
-  cursor: pointer;
-  transition: background 0.2s ease, color 0.2s ease;
-}
-
-.resultsInfo button:hover,
-.empty button:hover {
-  background: #171717;
-  color: #fff;
+/* Botão VOLTAR À LOJA */
+.resultsActions :global(a) {
+  width: 180px;
+  min-height: 38px;
+  margin-bottom: 0;
+  flex-shrink: 0;
 }
 
 .productGrid {
@@ -101,6 +92,7 @@
   gap: 35px 22px;
 }
 
+/* Estado sem resultados */
 .empty {
   min-height: 280px;
   display: flex;
@@ -127,6 +119,12 @@
   color: #777;
 }
 
+.empty :global(a) {
+  width: 220px;
+  margin-bottom: 0;
+}
+
+/* Tablet */
 @media (max-width: 1000px) {
   .productGrid {
     grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -134,6 +132,7 @@
   }
 }
 
+/* Mobile */
 @media (max-width: 768px) {
   .page {
     width: 92%;
@@ -165,6 +164,7 @@
   }
 }
 
+/* Telas pequenas */
 @media (max-width: 380px) {
   .resultsActions {
     align-items: flex-start;
@@ -179,5 +179,9 @@
   .sortControl select {
     min-width: 0;
     max-width: 190px;
+  }
+
+  .resultsActions :global(a) {
+    width: 100%;
   }
 }

@@ -4,6 +4,7 @@ import { useState } from "react";
 import Image from "next/image";
 import type { Product } from "@/types/product";
 import { useCart } from "@/hooks/useCart";
+import StoreButton from "@/components/store-button/StoreButton";
 import styles from "./ProductDetails.module.css";
 
 interface ProductDetailsProps {
@@ -19,22 +20,23 @@ export default function ProductDetails({
   const selectedVariant =
     product.variants[selectedVariantIndex];
 
-    const { dispatch } = useCart();
+  const { dispatch } = useCart();
 
   function handleAddToCart() {
     dispatch({
-        type: "ADD_ITEM",
-        payload: {
-           product,
-           selectedVariant,
-        },
+      type: "ADD_ITEM",
+      payload: {
+        product,
+        selectedVariant,
+      },
     });
-}  
+  }
 
   return (
     <main className={styles.container}>
-      <section className={styles.productLayout}>
+      <StoreButton />
 
+      <section className={styles.productLayout}>
         <div className={styles.gallery}>
           <div className={styles.mainImage}>
             <Image
@@ -103,7 +105,6 @@ export default function ProductDetails({
             ADICIONAR AO CARRINHO
           </button>
         </div>
-
       </section>
     </main>
   );

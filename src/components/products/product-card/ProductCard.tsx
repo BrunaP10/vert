@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Image from "next/image";
+import Link from "next/link";
 import type { CSSProperties } from "react";
 import type { Product } from "@/types/product";
 import { useCart } from "@/hooks/useCart";
@@ -46,7 +47,11 @@ export default function ProductCard({ product }: ProductCardProps) {
 
   return (
     <article className={styles.card}>
-      <div className={styles.imageContainer}>
+      <Link
+        href={`/product/${product.id}`}
+        className={styles.imageContainer}
+        aria-label={`Ver detalhes de ${product.name}`}
+      >
         <Image
           src={selectedVariant.image}
           alt={`${product.name} - ${selectedVariant.color}`}
@@ -54,10 +59,14 @@ export default function ProductCard({ product }: ProductCardProps) {
           sizes="(max-width: 768px) 50vw, 25vw"
           className={styles.image}
         />
-      </div>
+      </Link>
 
       <div className={styles.info}>
-        <h3>{product.name}</h3>
+        <h3>
+          <Link href={`/product/${product.id}`}>
+            {product.name}
+          </Link>
+        </h3>
 
         <p>
           {product.price.toLocaleString("pt-BR", {
