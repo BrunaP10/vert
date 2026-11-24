@@ -9,7 +9,7 @@
 .searchBanner {
   position: relative;
   width: 100%;
-  min-height: 270px;
+  min-height: 350px;
   overflow: hidden;
   display: flex;
   align-items: center;
@@ -30,7 +30,7 @@
 
 .searchBanner img {
   object-fit: cover;
-  object-position: center;
+  object-position: 75% center;
 }
 
 .searchContent {
@@ -84,12 +84,12 @@
 /* Conteúdo institucional */
 
 .footerContent {
-  width: min(100% - 16%, 1200px);
-  margin: 0 auto;
-  padding: 55px 0 45px;
+  width: 100%;
+  margin: 0;
+  padding: 40px 8% 35px;
   display: grid;
-  grid-template-columns: 1.4fr 0.8fr 1fr 1.2fr;
-  gap: 35px;
+  grid-template-columns: 1.3fr 0.8fr 1fr 1.2fr;
+  gap: 45px;
 }
 
 /* Identidade da marca */
@@ -175,9 +175,9 @@
 /* Assinatura inferior */
 
 .footerBottom {
-  width: min(100% - 16%, 1200px);
-  margin: 0 auto;
-  padding: 22px 0;
+  width: 100%;
+  margin: 0;
+  padding: 22px 8%;
   border-top: 1px solid #383838;
   display: flex;
   align-items: center;
@@ -217,6 +217,8 @@
 
 @media (max-width: 900px) {
   .footerContent {
+    width: 100%;
+    padding: 50px 6%;
     grid-template-columns: repeat(2, 1fr);
     gap: 40px 30px;
   }
@@ -224,7 +226,7 @@
 
 @media (max-width: 600px) {
   .searchBanner {
-    min-height: 230px;
+    min-height: 250px;
   }
 
   .searchContent {
@@ -238,10 +240,10 @@
   }
 
   .footerContent {
-    width: 88%;
+    width: 100%;
+    padding: 40px 6%;
     grid-template-columns: 1fr 1fr;
     gap: 35px 20px;
-    padding: 40px 0;
   }
 
   .brand p {
@@ -250,7 +252,8 @@
   }
 
   .footerBottom {
-    width: 88%;
+    width: 100%;
+    padding: 22px 6%;
     flex-direction: column;
     align-items: flex-start;
   }

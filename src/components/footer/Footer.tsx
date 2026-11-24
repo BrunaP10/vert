@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
+import Link from "next/link";
 import Image from "next/image";
 import styles from "./Footer.module.css";
 
@@ -59,17 +60,38 @@ export default function Footer() {
 
         <div className={styles.footerColumn}>
           <h3>INSTITUCIONAL</h3>
-          <a href="#sobre">Sobre a VÉRT</a>
-          <a href="#valores">Nossos valores</a>
-          <a href="#contato">Contato</a>
+
+          <Link href="/institutional#sobre">
+            Sobre a VÉRT
+          </Link>
+
+          <Link href="/institutional#nossos-valores">
+            Nossos valores
+          </Link>
+
+          <Link href="/institutional#contato">
+            Contato
+          </Link>
         </div>
 
         <div className={styles.footerColumn}>
           <h3>AJUDA</h3>
-          <a href="#faq">Perguntas frequentes</a>
-          <a href="#trocas">Trocas e devoluções</a>
-          <a href="#pagamento">Formas de pagamento</a>
-          <a href="#privacidade">Política de privacidade</a>
+
+          <Link href="/help#faq">
+            Perguntas frequentes
+          </Link>
+
+          <Link href="/help#trocas">
+            Trocas e devoluções
+          </Link>
+
+          <Link href="/help#pagamento">
+            Formas de pagamento
+          </Link>
+
+          <Link href="/help#privacidade">
+            Política de privacidade
+          </Link>
         </div>
 
         <div className={styles.newsletter}>

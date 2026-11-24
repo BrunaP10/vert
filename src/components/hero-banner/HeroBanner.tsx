@@ -9,6 +9,7 @@ import styles from "./HeroBanner.module.css";
 const banners = [
   {
     src: "/images/banners/main/banner-sunglasses.jpeg",
+    mobileSrc: "/images/banners-mobile/banner-sunglasses-mobile.png",
     alt: "Coleção de óculos de sol VÉRT",
     title: "ESTILO QUE ACOMPANHA VOCÊ",
     description: "ÓCULOS PARA TODOS OS SEUS MOMENTOS.",
@@ -17,6 +18,7 @@ const banners = [
   },
   {
     src: "/images/banners/main/banner-prescription.jpeg",
+    mobileSrc: "/images/banners-mobile/banner-prescription-mobile.png",
     alt: "Coleção de óculos de grau VÉRT",
     title: "ENXERGUE NOVAS POSSIBILIDADES",
     description: "CONFORTO, ESTILO E PERSONALIDADE.",
@@ -25,6 +27,7 @@ const banners = [
   },
   {
     src: "/images/banners/main/banner-sports.jpeg",
+    mobileSrc: "/images/banners-mobile/banner-sports-mobile.png",
     alt: "Coleção de óculos esportivos VÉRT",
     title: "SUPERE SEUS LIMITES",
     description: "TECNOLOGIA E PERFORMANCE PARA SEU RITMO.",
@@ -55,10 +58,7 @@ export default function HeroBanner() {
   }, []);
 
   return (
-    <section
-      className={styles.hero}
-      aria-label="Destaques VÉRT"
-    >
+    <section className={styles.hero} aria-label="Destaques VÉRT">
       {banners.map((banner, index) => (
         <div
           key={banner.src}
@@ -67,13 +67,20 @@ export default function HeroBanner() {
           }`}
           aria-hidden={currentIndex !== index}
         >
-          <Image
-            src={banner.src}
-            alt={banner.alt}
-            fill
-            priority={index === 0}
-            sizes="100vw"
-          />
+          <picture>
+            <source
+              media="(max-width: 768px)"
+              srcSet={banner.mobileSrc}
+            />
+
+            <Image
+              src={banner.src}
+              alt={banner.alt}
+              fill
+              priority={index === 0}
+              sizes="100vw"
+            />
+          </picture>
 
           <div className={styles.overlay} />
 
